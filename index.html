@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dice Roll</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <script src="app.js"></script>
+    <div class="roll-display">
+        <span id="displaySkill"></span>
+        =
+        <span id="displayMod"></span>
+    </div>
+    <div class="dice">
+        <ol class="die-list even-roll" data-roll="1" id="die-1">
+            <li class="die-item" data-side="1">
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="2">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="3">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="4">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="5">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="6">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+        </ol>
+        <ol class="die-list odd-roll" data-roll="1" id="die-2">
+            <li class="die-item" data-side="1">
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="2">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="3">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="4">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="5">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="6">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+        </ol>
+        <ol class="die-list odd-roll" data-roll="1" id="die-3">
+            <li class="die-item" data-side="1">
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="2">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="3">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="4">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="5">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="6">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+        </ol>
+        <ol class="die-list odd-roll" data-roll="1" id="die-4">
+            <li class="die-item" data-side="1">
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="2">
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="3">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="4">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="5">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+            <li class="die-item" data-side="6">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </li>
+        </ol>
+    </div>
+
+    <div class="formfields">
+        <input id="SelectSkill" list="skills" name="skills" placeholder="Skill" />
+        <datalist id="skills">
+            <option value="Academics"> </option>
+            <option value="Athletics"> </option>
+            <option value="Burglary"> </option>
+            <option value="Contacts"> </option>
+            <option value="Deceive"> </option>
+            <option value="Empathy"> </option>
+            <option value="Fight"> </option>
+            <option value="Hack"> </option>
+            <option value="Investigate"> </option>
+            <option value="Notice"> </option>
+            <option value="Physique"> </option>
+            <option value="Pilot"> </option>
+            <option value="Provoke"> </option>
+            <option value="Rapport"> </option>
+            <option value="Resources"> </option>
+            <option value="Shoot"> </option>
+            <option value="Stealth"> </option>
+            <option value="Survival"> </option>
+            <option value="Tech"> </option>
+            <option value="Will"> </option>
+        </datalist>
+
+        <input id="SelectMod" list="Mod" name="Mod" placeholder="Mod" />
+        <datalist name="Mod" id="Mod">
+            <option value="0"> </option>
+            <option value="1"> </option>
+            <option value="2"> </option>
+            <option value="3"> </option>
+            <option value="4"> </option>
+            <option value="5"> </option>
+            <option value="6"> </option>
+            <option value="7"> </option>
+            <option value="8"> </option>
+        </datalist>
+
+        <button type="button" id="roll-button">Roll Dice</button>
+    </div>
+
+    <script>
+        TogetherJSConfig_hubBase = "https://quilled-occipital-botany.glitch.me/";
+    </script>
+    <script src="https://togetherjs.com/togetherjs-min.js"></script>
+    <button onclick="TogetherJS(this); return false;">
+        Start TogetherJS
+    </button>
+</body>
+</html>

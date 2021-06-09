@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+html {
+  font-family: system-ui, sans-serif;
+}
+body {
+  background: #00ff00;
+  display: grid;
+  grid-template-columns: 2fr;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+.dice {
+  align-items: center;
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 2fr));
+  grid-template-rows: 2;
+  justify-items: center;
+  padding: 2rem;
+  perspective: 600px;
+}
+.die-list {
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: 3fr;
+  height: 6rem;
+  list-style-type: none;
+  transform-style: preserve-3d;
+  width: 6rem;
+}
+.even-roll {
+  transition: transform 1.5s ease-out;
+}
+.odd-roll {
+  transition: transform 1.25s ease-out;
+}
+.die-item {
+  background-color: #6b1515;
+  box-shadow: inset -0.35rem 0.35rem 0.75rem rgba(0, 0, 0, 0.3),
+    inset 0.5rem -0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+  display: grid;
+  grid-column: 1;
+  grid-row: 1;
+  grid-template-areas:
+    "one two three"
+    "four five six"
+    "seven eight nine";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 100%;
+  padding: 1rem;
+  width: 100%;
+}
+
+.formfields {
+  grid-column: 3
+  display: inline-block;
+  align-self: center;
+  justify-self: center;
+  height: 100px;
+}
+
+.roll-display {
+  grid-column: 3
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  align-self: center; 
+  justify-self: center;
+  width: 200px;
+  height: 30px;
+  background-color: #efefef;
+  border: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.die-item[data-side="6"] {
+  background-image: url("https://drive.google.com/uc?id=1n9tmsDlZ86gzvIG3tVdgD-2FKsFM02-6");
+}
+.die-item[data-side="5"] {
+  background-image: url("https://drive.google.com/uc?id=1n9tmsDlZ86gzvIG3tVdgD-2FKsFM02-6");
+}
+.die-item[data-side="4"] {
+  background-image: url("https://drive.google.com/uc?id=101s4JygUTN-xNi36wcZLvywa0q73-hkw");
+}
+.die-item[data-side="3"] {
+  background-image: url("https://drive.google.com/uc?id=101s4JygUTN-xNi36wcZLvywa0q73-hkw");
+}
+.die-item[data-side="2"] {
+  background-image: url("https://drive.google.com/uc?id=1fixw8SmM5dmHDFDxVydQ0KRWmkvt2Jps");
+}
+.die-item[data-side="1"] {
+  background-image: url("https://drive.google.com/uc?id=1fixw8SmM5dmHDFDxVydQ0KRWmkvt2Jps");
+}
+.even-roll[data-roll="1"] {
+  transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+}
+.even-roll[data-roll="2"] {
+  transform: rotateX(450deg) rotateY(720deg) rotateZ(360deg);
+}
+.even-roll[data-roll="3"] {
+  transform: rotateX(360deg) rotateY(630deg) rotateZ(360deg);
+}
+.even-roll[data-roll="4"] {
+  transform: rotateX(360deg) rotateY(810deg) rotateZ(360deg);
+}
+.even-roll[data-roll="5"] {
+  transform: rotateX(270deg) rotateY(720deg) rotateZ(360deg);
+}
+.even-roll[data-roll="6"] {
+  transform: rotateX(360deg) rotateY(900deg) rotateZ(360deg);
+}
+.odd-roll[data-roll="1"] {
+  transform: rotateX(-360deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="2"] {
+  transform: rotateX(-270deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="3"] {
+  transform: rotateX(-360deg) rotateY(-810deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="4"] {
+  transform: rotateX(-360deg) rotateY(-630deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="5"] {
+  transform: rotateX(-450deg) rotateY(-720deg) rotateZ(-360deg);
+}
+.odd-roll[data-roll="6"] {
+  transform: rotateX(-360deg) rotateY(-900deg) rotateZ(-360deg);
+}
+[data-side="1"] {
+  transform: rotate3d(0, 0, 0, 90deg) translateZ(4rem);
+}
+[data-side="2"] {
+  transform: rotate3d(-1, 0, 0, 90deg) translateZ(4rem);
+}
+[data-side="3"] {
+  transform: rotate3d(0, 1, 0, 90deg) translateZ(4rem);
+}
+[data-side="4"] {
+  transform: rotate3d(0, -1, 0, 90deg) translateZ(4rem);
+}
+[data-side="5"] {
+  transform: rotate3d(1, 0, 0, 90deg) translateZ(4rem);
+}
+[data-side="6"] {
+  transform: rotate3d(1, 0, 0, 180deg) translateZ(4rem);
+}
+
+button {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  background-color: #efefef;
+  border: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.2);
+}
+button:hover {
+  cursor: pointer;
+}
+input[name="skills"] {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  background-color: #efefef;
+  border: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.2);
+}
+input[name="Mod"] {
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  width: 150px;
+  height: 30px;
+  background-color: #efefef;
+  border: none;
+  color: #333;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 900px) {
+  .dice {
+    perspective: 1300px;
+  }
+}
