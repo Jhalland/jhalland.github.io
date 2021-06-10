@@ -11,7 +11,7 @@ ws.binaryType = "arraybuffer";
            
 
     });
-
+//arbitrary text so that I can make a commit
 ws.addEventListener("message", function (event) {
     diceSet = event.data;
     diceSet = JSON.parse(diceSet);
