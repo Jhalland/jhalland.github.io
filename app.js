@@ -2,16 +2,15 @@ var currentDie;
 var diceTotal = 0;
 var diceNmod;
 const ws = new WebSocket("wss://dicewebsocket.glitch.me/:3000");
-ws.binaryType = "arraybuffer";
-//const serverAddress = "wss://dicewebsocket.glitch.me/:3000";
+var threeHourCount = 0;
+
+setInterval(preventTimeOut(), 150000);
 
 
-    ws.addEventListener("open", function () {
-        document.getElementById("roll-button").addEventListener("click", rollDice);
-           
-
+ws.addEventListener("open", function () {
+    document.getElementById("roll-button").addEventListener("click", rollDice);
     });
-//arbitrary text so that I can make a commit again
+
 ws.addEventListener("message", function (event) {
     diceSet = event.data;
     diceSet = JSON.parse(diceSet);
@@ -91,6 +90,13 @@ function toggleClasses(die) {
 }
 
 */
+
+function preventTimeOut() {
+    threeHourCount++;
+    if (threeHourCount < 72) {
+        ws.send("stayinAlive");
+    }
+}
 
 function showValue() {
   document.getElementById("displayMod").style.display = "inline-block";
