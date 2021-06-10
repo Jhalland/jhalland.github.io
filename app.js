@@ -4,9 +4,10 @@ var diceNmod;
 const ws = new WebSocket("wss://dicewebsocket.glitch.me/:3000");
 var threeHourCount = 0;
 
+setTimeout(beginTimeOutCount(), 10000);
+
 ws.addEventListener("open", function () {
     document.getElementById("roll-button").addEventListener("click", rollDice);
-    setInterval(preventTimeOut(), 150000);
     });
 
 ws.addEventListener("message", function (event) {
@@ -88,6 +89,10 @@ function toggleClasses(die) {
 }
 
 */
+
+function beginTimeOutCount() {
+    setInterval(preventTimeOut(), 150000);
+}
 
 function preventTimeOut() {
     threeHourCount++;
