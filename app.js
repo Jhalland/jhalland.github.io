@@ -4,11 +4,9 @@ var diceNmod;
 const ws = new WebSocket("wss://dicewebsocket.glitch.me/:3000");
 var threeHourCount = 0;
 
-setInterval(preventTimeOut(), 150000);
-
-
 ws.addEventListener("open", function () {
     document.getElementById("roll-button").addEventListener("click", rollDice);
+    setInterval(preventTimeOut(), 150000);
     });
 
 ws.addEventListener("message", function (event) {
@@ -96,6 +94,7 @@ function preventTimeOut() {
     if (threeHourCount < 72) {
         ws.send("stayinAlive");
     }
+    console.log("ping #" + threeHourCount + "of 72");
 }
 
 function showValue() {
