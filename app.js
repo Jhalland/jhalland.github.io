@@ -4,48 +4,59 @@ var diceNmod;
 const ws = new WebSocket("wss://dicewebsocket.glitch.me/:3000");
 var threeHourCount = 0;
 
-ws.addEventListener("open", function () {
+///ws.onopen = () => (setInterval(preventTimeOut(), 10000), document.getElementById("roll-button").addEventListener("click", rollDice));
+
+///150000 = 2.5 min
+
+ws.onopen = function (event) {
+    setInterval(preventTimeOut, 150000);
     document.getElementById("roll-button").addEventListener("click", rollDice);
-    setTimeout(beginTimeOutCount(), 50000);
-    });
+}
 
 ws.addEventListener("message", function (event) {
-    diceSet = event.data;
-    diceSet = JSON.parse(diceSet);
-    console.log(diceSet);
 
-    const dice = [...document.querySelectorAll(".die-list")];
-    setTimeout(showValue, 2000);
-    var i = 0;
-    dice.forEach((die) => {
-        toggleClasses(die);
-        console.log(diceSet[i])
-        die.dataset.roll = diceSet[i];
-        if (diceSet[i] == 1 || diceSet[i] == 2) currentDie = -1;
-        else if (diceSet[i] == 3 || diceSet[i] == 4) currentDie = 0;
-        else if (diceSet[i] == 5 || diceSet[i] == 6) currentDie = 1;
-        i++;
-        diceTotal = diceTotal + currentDie;
-    });
-    i = 1;
-    const Value = document.querySelector("#SelectMod").value;
-    const chosenSkill = document.querySelector("#SelectSkill").value;
-    console.log(chosenSkill);
-    var modVal = parseInt(Value, 10);
-    var skillCheck = chosenSkill;
-    diceNmod = diceTotal + modVal;
-    document.getElementById("displayMod").innerHTML = diceNmod;
-    document.getElementById("displaySkill").innerHTML = skillCheck;
+    if (event.data == "response") {
+        return
+    }
+    else {
+        diceSet = event.data;
+        diceSet = JSON.parse(diceSet);
+        console.log(diceSet);
 
-    document.getElementById("displayMod").style.display = "none";
+        const dice = [...document.querySelectorAll(".die-list")];
+        setTimeout(showValue, 2000);
+        var i = 0;
+        dice.forEach((die) => {
+            toggleClasses(die);
+            console.log(diceSet[i])
+            die.dataset.roll = diceSet[i];
+            if (diceSet[i] == 1 || diceSet[i] == 2) currentDie = -1;
+            else if (diceSet[i] == 3 || diceSet[i] == 4) currentDie = 0;
+            else if (diceSet[i] == 5 || diceSet[i] == 6) currentDie = 1;
+            i++;
+            diceTotal = diceTotal + currentDie;
+        });
+        i = 1;
+        const Value = document.querySelector("#SelectMod").value;
+        const chosenSkill = document.querySelector("#SelectSkill").value;
+        console.log(chosenSkill);
+        var modVal = parseInt(Value, 10);
+        var skillCheck = chosenSkill;
+        diceNmod = diceTotal + modVal;
+        document.getElementById("displayMod").innerHTML = diceNmod;
+        document.getElementById("displaySkill").innerHTML = skillCheck;
 
-    diceTotal = 0;
+        document.getElementById("displayMod").style.display = "none";
+
+        diceTotal = 0;
 
 
 
 
     }
+}
 );
+
 
 function rollDice() {
     console.log("attempting to send roll now");
@@ -90,8 +101,12 @@ function toggleClasses(die) {
 */
 
 function beginTimeOutCount() {
-    setInterval(preventTimeOut(), 150000);
+    setInterval(function () {
+        preventTimeOut;
+    }, 10000);
 }
+
+
 
 function preventTimeOut() {
     threeHourCount++;
