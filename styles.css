@@ -154,6 +154,10 @@ body {
   transform: rotate3d(1, 0, 0, 180deg) translateZ(4rem);
 }
 
+#togetherjs-dock {
+    display: none;
+}
+
 button {
   align-self: center;
   justify-self: center;

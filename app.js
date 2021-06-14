@@ -11,6 +11,7 @@ var threeHourCount = 0;
 ws.onopen = function (event) {
     setInterval(preventTimeOut, 150000);
     document.getElementById("roll-button").addEventListener("click", rollDice);
+    
 }
 
 ws.addEventListener("message", function (event) {
